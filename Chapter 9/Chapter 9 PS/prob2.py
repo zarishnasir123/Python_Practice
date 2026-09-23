@@ -8,23 +8,23 @@ def game():
     print("You're playing the game..")
     score = random.randint(1, 62)
     
-    # Fetch the hiscore safely
-    try:
-        with open("Hi-score.txt", "r") as f:
-            hiscore_str = f.read().strip()
-            hiscore = int(hiscore_str) if hiscore_str else 0
-    except FileNotFoundError:
-        hiscore = 0
+    # fetch the hiscore
+    with open("Hi-score.txt") as f:
+        hiscore = f.read()
+        if(hiscore != ""):
+            hiscore = int(hiscore)
+        else:
+            hiscore = 0
 
     print(f"Hi-Score: {hiscore}")
     print(f"Your Score: {score}")
 
-    # Update the Hi-Score if the user beat it
-    if score > hiscore:
-        print("New High Score!")
+    # update the hiscore file if current score is higher
+    if(score > hiscore):
+        print("Congratulations! You broke the high score!")
         with open("Hi-score.txt", "w") as f:
             f.write(str(score))
-    
+
     return score
 
 game()
