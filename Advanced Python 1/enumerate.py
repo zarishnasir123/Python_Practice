@@ -16,8 +16,8 @@ for index, value in enumerate(fruits):
 
 items = ["Task 1", "Task 2", "Task 3"]
 
-for count, item in enumerate(items, start=1):
-    print(f"{count}. {item}")
+for index, item in enumerate(items, start=1):
+    print(f"{index}. {item}")
 
 # Output:
 # 1. Task 1
